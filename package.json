@@ -2,7 +2,7 @@
   "name": "dashboard-app-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "serveer.js",
+  "main": "server.js",
   "scripts": {
     "start": "node serveer.js",
     "test": "echo \"Error: no test specified\" && exit 1"
