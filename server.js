@@ -12,13 +12,13 @@ const allowedOrigins = [
 ];
 
 // Enable CORS with the specific allowed origins
-app.use(
-  cors({
-    origin: allowedOrigins, // Only allow requests from the specified frontend
-    methods: ["GET", "POST", "PUT", "DELETE"], // Methods that are allowed
-    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers for CORS requests
-  })
-);
+// app.use(
+//   cors({
+//     origin: allowedOrigins, // Only allow requests from the specified frontend
+//     methods: ["GET", "POST", "PUT", "DELETE"], // Methods that are allowed
+//     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers for CORS requests
+//   })
+// );
 
 // Middleware
 app.use(express.json()); // Parse incoming JSON requests
