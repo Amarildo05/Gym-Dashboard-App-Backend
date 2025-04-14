@@ -6,15 +6,22 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 3001;
 
-// Enable CORS
+// CORS Configuration
+const allowedOrigins = [
+  process.env.FRONTEND_URL, // Use the FRONTEND_URL from the .env file
+];
+
+// Enable CORS with the specific allowed origins
 app.use(
   cors({
-    origin: "http://localhost:5173", // Frontend url
+    origin: allowedOrigins, // Only allow requests from the specified frontend
+    methods: ["GET", "POST", "PUT", "DELETE"], // Methods that are allowed
+    allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers for CORS requests
   })
 );
 
 // Middleware
-app.use(express.json());
+app.use(express.json()); // Parse incoming JSON requests
 
 // MongoDB connection
 mongoose
