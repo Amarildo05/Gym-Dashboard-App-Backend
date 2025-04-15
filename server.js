@@ -7,11 +7,15 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 // CORS Configuration
-const allowedOrigins = [
-  process.env.FRONTEND_URL, // Use the FRONTEND_URL from the .env file
-];
+const corsOptions = {
+  origin: process.env.FRONTEND_URL, // Frontend URL from .env
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+};
 
-// Middleware
+console.log("Allowed origin:", process.env.FRONTEND_URL); // debug log
+
+app.use(cors(corsOptions)); // Use CORS with the options
 app.use(express.json()); // Parse incoming JSON requests
 
 // MongoDB connection
